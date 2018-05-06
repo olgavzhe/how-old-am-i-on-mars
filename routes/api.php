@@ -18,3 +18,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('mymarsage/{dateOfBirth?}', 'Api\HowOldAmIOnMarsController@calculateMyAge');
+Route::get('amIAllowedToDrinkAlcoholOnMars/{dateOfBirth?}', 'Api\HowOldAmIOnMarsController@amIAllowedToDrinkAlcoholOnMars');

@@ -210,4 +210,48 @@ class HowOldAmIOnMarsTest extends TestCase
         $marsDays = $this->service->convertSecondsToMarsDays(-3);
         $this->assertEquals(0, $marsDays);
     }
+
+    /**
+     * @covers \App\Library\Service\HowOldAmIOnMars::checkAlcoholAgeOnMars
+     *
+     * @group Service
+     * @small
+     */
+    public function test_CheckAlcoholAgeOnMars_Normal()
+    {
+        /**
+         * Normal tests
+         */
+        $result         = $this->service->checkAlcoholAgeOnMars(16);
+        $this->assertFalse($result);
+
+        $result         = $this->service->checkAlcoholAgeOnMars(19);
+        $this->assertTrue($result);
+    }
+
+    /**
+     * @covers \App\Library\Service\HowOldAmIOnMars::checkAlcoholAgeOnMars
+     *
+     * @expectedException \InvalidArgumentException
+     * 
+     * @group Service
+     * @small
+     */
+    public function test_CheckAlcoholAgeOnMars_WrongArguments_EmptyString()
+    {
+        $result = $this->service->checkAlcoholAgeOnMars('');
+    }
+
+    /**
+     * @covers \App\Library\Service\HowOldAmIOnMars::checkAlcoholAgeOnMars
+     *
+     * @expectedException \InvalidArgumentException
+     * 
+     * @group Service
+     * @small
+     */
+    public function test_CheckAlcoholAgeOnMars_WrongArguments_NegativeNumber()
+    {
+        $result = $this->service->checkAlcoholAgeOnMars(-19);
+    }
 }

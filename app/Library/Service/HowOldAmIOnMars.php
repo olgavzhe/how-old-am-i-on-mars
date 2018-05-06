@@ -37,6 +37,8 @@ class HowOldAmIOnMars
      */
     const MARS_CONFIG_YEAR_LENGTH_IN_MARS_DAYS = 668;
 
+    const MARS_CONFIG_LEGAL_AGE_FOR_ALCOHOL = 18;
+
     /**
      * Get Earth day length in seconds
      * @return int
@@ -67,6 +69,15 @@ class HowOldAmIOnMars
     }
 
     /**
+     * Get Earth day length in seconds
+     * @return int
+     */
+    protected function getMarsLegalAgeForAlcohol()
+    {
+        return self::MARS_CONFIG_LEGAL_AGE_FOR_ALCOHOL;
+    }
+
+    /**
      * @param string $datetime
      * @return int
      * @throws \InvalidArgumentException
@@ -75,7 +86,7 @@ class HowOldAmIOnMars
     protected function getDiffInSeconds($datetime = '')
     {
         if (is_string($datetime) === false || empty($datetime) === true) {
-            throw new \InvalidArgumentException("Wrong date time string format.");
+            throw new \InvalidArgumentException("Wrong date time string format: ".$datetime);
         }
 
         $now      = $this->getNowDatetime();
@@ -99,7 +110,7 @@ class HowOldAmIOnMars
     protected function getDiffInDays($datetime = '')
     {
         if (is_string($datetime) === false || empty($datetime) === true) {
-            throw new \InvalidArgumentException("Wrong date time string format.");
+            throw new \InvalidArgumentException("Wrong date time string format: ".$datetime);
         }
 
         $now      = $this->getNowDatetime();
@@ -224,6 +235,29 @@ class HowOldAmIOnMars
             'in_days'  => $marsDays,
             'in_years' => $marsYears,
         ];
+
+        return $result;
+    }
+
+    /**
+     * Check if it's time to drink alcohol on Mars
+     *
+     * @param string $dayOfBirthOnEarth
+     * @return array
+     * @throws \InvalidArgumentException
+     * @throws \Exception
+     */
+    public function checkAlcoholAgeOnMars($years = 0)
+    {
+        $result = false;
+
+        if (is_numeric($years) === false || $years < 0) {
+            throw new \InvalidArgumentException("Wrong age");
+        }
+
+        if ($years >= $this->getMarsLegalAgeForAlcohol()) {
+            $result = true;
+        }
 
         return $result;
     }

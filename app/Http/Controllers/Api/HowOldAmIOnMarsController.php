@@ -23,4 +23,19 @@ class HowOldAmIOnMarsController extends \App\Http\Controllers\Controller
 
         return response()->json($result, $code);
     }
+
+    public function amIAllowedToDrinkAlcoholOnMars(Service $service, $dateOfBirth = '')
+    {
+        try {
+            $ageResult = $service->calculateMyAgeOnMars($dateOfBirth);
+
+            $result = ['data' => $service->checkAlcoholAgeOnMars($ageResult['in_years'])];
+            $code   = 200;
+        } catch (\Exception $exception) {
+            $result = ['error' => $exception->getMessage()];
+            $code   = 200;
+        }
+
+        return response()->json($result, $code);
+    }
 }

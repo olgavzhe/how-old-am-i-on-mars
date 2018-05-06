@@ -13,14 +13,14 @@ class HowOldAmIOnMarsApiTest extends TestCase
      *
      * @group Api
      */
-    public function test_19880202_Success()
+    public function test_MyMarsAge_19880202_Success()
     {
         $this->json('GET', 'api/mymarsage/19880202')
             ->assertStatus(200)
-            ->assertExactJson([
+            ->assertJsonStructure([
                 'data' => [
-                    'in_days'  => 10728,
-                    'in_years' => 16,
+                    'in_days',
+                    'in_years',
                 ],
             ]);
     }
@@ -30,7 +30,7 @@ class HowOldAmIOnMarsApiTest extends TestCase
      *
      * @group Api
      */
-    public function test_Fail_WrongArguments()
+    public function test_MyMarsAge_Fail_WrongArguments()
     {
         /**
          * Wrong argument
@@ -52,5 +52,19 @@ class HowOldAmIOnMarsApiTest extends TestCase
         $this->json('GET', 'api/mymarsage/20300303')
             ->assertStatus(200)
             ->assertJsonStructure(['error']);
+    }
+
+    /**
+     * @covers \App\Http\Controllers\Api\HowOldAmIOnMarsController::amIAllowedToDrinkAlcoholOnMars
+     *
+     * @group Api
+     */
+    public function test_AmIAllowedToDrinkAlcoholOnMars_19840101_Success()
+    {
+        $this->json('GET', 'api/amIAllowedToDrinkAlcoholOnMars/19840101')
+            ->assertStatus(200)
+            ->assertExactJson([
+                'data' => true,
+            ]);
     }
 }
