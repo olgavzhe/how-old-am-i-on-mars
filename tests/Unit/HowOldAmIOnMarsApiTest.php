@@ -36,21 +36,21 @@ class HowOldAmIOnMarsApiTest extends TestCase
          * Wrong argument
          */
         $this->json('GET', 'api/mymarsage/somestring')
-            ->assertStatus(200)
+            ->assertStatus(400)
             ->assertJsonStructure(['error']);
 
         /**
          * Empty date of birth
          */
         $this->json('GET', 'api/mymarsage/')
-            ->assertStatus(200)
+            ->assertStatus(400)
             ->assertJsonStructure(['error']);
 
         /**
          * Future date
          */
         $this->json('GET', 'api/mymarsage/20300303')
-            ->assertStatus(200)
+            ->assertStatus(400)
             ->assertJsonStructure(['error']);
     }
 

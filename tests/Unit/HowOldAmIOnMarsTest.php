@@ -222,10 +222,10 @@ class HowOldAmIOnMarsTest extends TestCase
         /**
          * Normal tests
          */
-        $result         = $this->service->checkAlcoholAgeOnMars(16);
+        $result = $this->service->checkAlcoholAgeOnMars(16);
         $this->assertFalse($result);
 
-        $result         = $this->service->checkAlcoholAgeOnMars(19);
+        $result = $this->service->checkAlcoholAgeOnMars(19);
         $this->assertTrue($result);
     }
 
@@ -233,7 +233,7 @@ class HowOldAmIOnMarsTest extends TestCase
      * @covers \App\Library\Service\HowOldAmIOnMars::checkAlcoholAgeOnMars
      *
      * @expectedException \InvalidArgumentException
-     * 
+     *
      * @group Service
      * @small
      */
@@ -246,7 +246,7 @@ class HowOldAmIOnMarsTest extends TestCase
      * @covers \App\Library\Service\HowOldAmIOnMars::checkAlcoholAgeOnMars
      *
      * @expectedException \InvalidArgumentException
-     * 
+     *
      * @group Service
      * @small
      */
