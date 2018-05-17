@@ -27,28 +27,24 @@ $ cp docker-compose.yml.example docker-compose.yml
             </td>
         </tr>
         <tr>
-            <td></td>
             <td><code>FACEBOOK_APP_SECRET</code></td>
             <td>
             Facebook Application Secret. Go to <a href="https://developers.facebook.com">Facebook Dashboard</a> <strong>Settings</strong> > <strong>Basic</strong> > <strong>App Secret</strong>
             </td>
         </tr>
         <tr>
-            <td></td>
             <td><code>FACEBOOK_CALLBACK_URL</code></td>
             <td>
             A callback URL, it should be the same as in <a href="https://developers.facebook.com">Facebook Dashboard</a> <strong>Facebook Login</strong> > <strong>Settings</strong> > <strong>Valid OAuth Redirect URIs</strong>
             </td>
         </tr>
         <tr>
-            <td></td>
             <td><code>FACEBOOK_GRAPH_VERSION</code></td>
             <td>
             Facebook Graph API version. By default, v2.10.
             </td>
         </tr>
         <tr>
-            <td></td>
             <td><code>USER_PASSWORD_SECRET</code></td>
             <td>
             A secret string to generate a new user password.
