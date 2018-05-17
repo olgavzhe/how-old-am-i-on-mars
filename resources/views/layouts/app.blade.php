@@ -57,6 +57,11 @@
                                         </a>
                                     </li>
                                     <li>
+                                        <a href="{{ route('login-history') }}">
+                                            Login History
+                                        </a>
+                                    </li>
+                                    <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

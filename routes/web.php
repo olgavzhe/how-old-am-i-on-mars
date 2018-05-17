@@ -27,28 +27,44 @@ Route::group(['prefix' => '/auth'], function () {
     Route::get('/facebook/callback', 'Auth\FacebookController@facebookCallback');
 });
 
-/**
- * How old am i on mars
- */
-Route::get('/how-old-am-i-on-mars',
-    [
-        'as'   => '/how-old-am-i-on-mars',
-        'uses' => 'HowOldAmIOnMarsController@getAge'
-    ]
-)->middleware('auth');
-Route::post('/how-old-am-i-on-mars',
-    [
-        'as'   => '/how-old-am-i-on-mars',
-        'uses' => 'HowOldAmIOnMarsController@postAge'
-    ]
-)->middleware('auth');
 
-/**
- * Requests History
- */
-Route::get('/requests-history',
-    [
-        'as'   => 'requests-history',
-        'uses' => 'RequestsHistoryController@getRequestsHistory'
-    ]
-)->middleware('auth');
+Route::middleware(['auth'])->group(function () {
+    /**
+     * How old am i on mars
+     */
+    Route::get('/how-old-am-i-on-mars',
+        [
+            'as'   => '/how-old-am-i-on-mars',
+            'uses' => 'HowOldAmIOnMarsController@getAge'
+        ]
+    );
+    Route::post('/how-old-am-i-on-mars',
+        [
+            'as'   => '/how-old-am-i-on-mars',
+            'uses' => 'HowOldAmIOnMarsController@postAge'
+        ]
+    );
+
+    /**
+     * Requests History
+     */
+    Route::get('/requests-history',
+        [
+            'as'   => 'requests-history',
+            'uses' => 'RequestsHistoryController@getRequestsHistory'
+        ]
+    );
+    /**
+     * Login History
+     */
+    Route::get('/login-history',
+        [
+            'as'   => 'login-history',
+            'uses' => 'LoginHistoryController@getLoginHistory'
+        ]
+    );
+});
+
+
+
+

@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
+use App\LoginHistory;
 
 /**
  * Class FacebookController
@@ -108,8 +109,21 @@ class FacebookController extends Controller
         );
 
         Auth::login($authUser, true);
+        $this->createLoginHistory($authUser->id);
 
         return $result;
+    }
+
+    /**
+     * Create a login history
+     *
+     * @param int $userId
+     */
+    private function createLoginHistory($userId)
+    {
+        LoginHistory::create([
+            'user_id'  => $userId
+        ]);
     }
 
     /**
