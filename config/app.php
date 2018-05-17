@@ -181,6 +181,7 @@ return [
          * Custom Service Providers...
          */
         App\Providers\HowOldAmIOnMarsServiceProvider::class,
+        App\Providers\FacebookServiceProvider::class,
 
     ],
 

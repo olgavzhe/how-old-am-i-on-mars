@@ -3,13 +3,13 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use App\Library\Service\HowOldAmIOnMars;
+use App\Library\Service\Facebook;
 
 /**
- * Class HowOldAmIOnMarsServiceProvider
+ * Class FacebookServiceProvider
  * @package App\Providers
  */
-class HowOldAmIOnMarsServiceProvider extends ServiceProvider
+class FacebookServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
@@ -28,8 +28,8 @@ class HowOldAmIOnMarsServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(HowOldAmIOnMars::class, function ($app) {
-            return new HowOldAmIOnMars();
+        $this->app->bind(Facebook::class, function ($app) {
+            return new Facebook();
         });
     }
 }
