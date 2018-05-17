@@ -20,7 +20,7 @@ $ cp docker-compose.yml.example docker-compose.yml
     </thead>
     <tbody>
         <tr>
-            <td rowspan=4><strong>.env</strong></td>
+            <td rowspan=5><strong>.env</strong></td>
             <td><code>FACEBOOK_APP_ID</code></td>
             <td>
             Facebook Application Id. Go to h<a href="https://developers.facebook.com">Facebook Dashboard</a> and get your application id.
