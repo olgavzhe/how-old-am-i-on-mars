@@ -1,20 +1,20 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace SillyDevelopment\HowOldAmIOnMars\Controllers\Api;
 
 use Illuminate\Http\Request;
-use App\Library\Service\HowOldAmIOnMars as Service;
+use SillyDevelopment\HowOldAmIOnMars\Service\HowOldAmIOnMars as Service;
 
 /**
  * Class HowOldAmIOnMarsController
- * @package App\Http\Controllers\Api
+ * @package SillyDevelopment\HowOldAmIOnMars\Controllers\Api
  */
 class HowOldAmIOnMarsController extends \App\Http\Controllers\Controller
 {
     /**
      * Api point to calculate age of Mars based on a date of birth on Earth
      *
-     * @param \App\Library\Service\HowOldAmIOnMars $service
+     * @param \SillyDevelopment\HowOldAmIOnMars\Service\HowOldAmIOnMars $service
      * @param string $dateOfBirth
      * @return \Illuminate\Http\JsonResponse
      */
@@ -35,7 +35,7 @@ class HowOldAmIOnMarsController extends \App\Http\Controllers\Controller
      * Api point to calculate if one is allowed to drink alcohol on Mars
      * based on a date of birth on Earth
      *
-     * @param \App\Library\Service\HowOldAmIOnMars $service
+     * @param \SillyDevelopment\HowOldAmIOnMars\Service\HowOldAmIOnMars $service
      * @param string $dateOfBirth
      * @return \Illuminate\Http\JsonResponse
      */

@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace SillyDevelopment\HowOldAmIOnMars;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -15,9 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password'
+        'name', 'email', 'password','facebook_id','facebook_token','facebook_birthday'
     ];
 
     /**
@@ -26,7 +24,6 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password',
-        'remember_token',
+        'password', 'remember_token',
     ];
 }

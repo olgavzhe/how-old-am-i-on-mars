@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Library\Service;
+namespace SillyDevelopment\HowOldAmIOnMars\Service;
 
 /**
  * Class HowOldAmIOnMars
- * @package App\Library\Service
+ * @package SillyDevelopment\HowOldAmIOnMars\Service
  */
 class HowOldAmIOnMars
 {

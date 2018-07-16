@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace SillyDevelopment\HowOldAmIOnMars\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use App\LoginHistory;
+use SillyDevelopment\HowOldAmIOnMars\LoginHistory;
 
 /**
  * Class LoginHistoryController
- * @package App\Http\Controllers
+ * @package SillyDevelopment\HowOldAmIOnMars\Controllers
  */
-class LoginHistoryController extends Controller
+class LoginHistoryController extends \App\Http\Controllers\Controller
 {
     /**
      * Get a list of login history
@@ -26,7 +26,7 @@ class LoginHistoryController extends Controller
             ->orderBy('created_at', 'asc')
             ->get();
 
-        $result = response()->view('login-history.history_table',
+        $result = response()->view('facebook::login-history.history_table',
             ['loginHistory' => $requestsHistory],
             Response::HTTP_OK
         );

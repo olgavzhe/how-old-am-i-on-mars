@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace SillyDevelopment\HowOldAmIOnMars\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Library\Service\Facebook;
+use SillyDevelopment\HowOldAmIOnMars\Service\Facebook;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 use App\User;
@@ -12,11 +12,11 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
-use App\LoginHistory;
+use SillyDevelopment\HowOldAmIOnMars\LoginHistory;
 
 /**
  * Class FacebookController
- * @package App\Http\Controllers\Auth
+ * @package SillyDevelopment\HowOldAmIOnMars\Controllers\Auth
  */
 class FacebookController extends Controller
 {
@@ -46,7 +46,7 @@ class FacebookController extends Controller
     }
 
     /**
-     * @param \App\Library\Service\Facebook $facebookService
+     * @param \SillyDevelopment\HowOldAmIOnMars\Service\Facebook $facebookService
      * @return mixed
      */
     public function redirectToFacebook(Facebook $facebookService)
@@ -68,7 +68,7 @@ class FacebookController extends Controller
     }
 
     /**
-     * @param \App\Library\Service\Facebook $facebookService
+     * @param \SillyDevelopment\HowOldAmIOnMars\Service\Facebook $facebookService
      * @return \Illuminate\Http\Response
      * @throws \Facebook\Exceptions\FacebookSDKException
      */
@@ -122,7 +122,7 @@ class FacebookController extends Controller
     private function createLoginHistory($userId)
     {
         LoginHistory::create([
-            'user_id'  => $userId
+            'user_id' => $userId
         ]);
     }
 

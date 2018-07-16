@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Library\Service;
+namespace SillyDevelopment\HowOldAmIOnMars\Service;
 
 use Illuminate\Support\Facades\Log;
-
 use Illuminate\Http\Response;
 
 /**
  * Class Facebook
- * @package App\Library\Service
+ * @package SillyDevelopment\HowOldAmIOnMars\Service
  */
 class Facebook
 {

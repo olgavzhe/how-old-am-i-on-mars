@@ -1,23 +1,23 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace SillyDevelopment\HowOldAmIOnMars\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Response;
-use App\Library\Service\HowOldAmIOnMars;
-use \App\RequestsHistory;
+use SillyDevelopment\HowOldAmIOnMars\Service\HowOldAmIOnMars;
+use SillyDevelopment\HowOldAmIOnMars\RequestsHistory;
 
 /**
  * Class HowOldAmIOnMarsController
- * @package App\Http\Controllers
+ * @package SillyDevelopment\HowOldAmIOnMars\Controllers
  */
-class HowOldAmIOnMarsController extends Controller
+class HowOldAmIOnMarsController extends \App\Http\Controllers\Controller
 {
     /**
      * Calculate age based on birthday from an authorised user birthday
      *
-     * @param \App\Library\Service\HowOldAmIOnMars $howOldAmIOnMarsService
+     * @param \SillyDevelopment\HowOldAmIOnMars\Service\HowOldAmIOnMars $howOldAmIOnMarsService
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
@@ -29,7 +29,7 @@ class HowOldAmIOnMarsController extends Controller
 
             $calculationResult = $howOldAmIOnMarsService->calculateMyAgeOnMars($user->facebook_birthday);
         } catch (\Exception $exception) {
-            $result = response()->view('mars.check_age',
+            $result = response()->view('how-old-am-i-on-mars::mars.check_age',
                 ['error' => $exception->getMessage()],
                 Response::HTTP_BAD_REQUEST);
 
@@ -38,7 +38,7 @@ class HowOldAmIOnMarsController extends Controller
 
         $this->createRequestHistory($user->id, $user->facebook_birthday);
 
-        $result = response()->view('mars.check_age',
+        $result = response()->view('how-old-am-i-on-mars::mars.check_age',
             [
                 'myAgeOnMars' => [
                     'birthday' => $user->facebook_birthday,
@@ -54,7 +54,7 @@ class HowOldAmIOnMarsController extends Controller
     /**
      * Calculate age based on birthday from a post request
      *
-     * @param \App\Library\Service\HowOldAmIOnMars $howOldAmIOnMarsService
+     * @param \SillyDevelopment\HowOldAmIOnMars\Service\HowOldAmIOnMars $howOldAmIOnMarsService
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
@@ -68,7 +68,7 @@ class HowOldAmIOnMarsController extends Controller
 
             $calculationResult = $howOldAmIOnMarsService->calculateMyAgeOnMars($birthday);
         } catch (\Exception $exception) {
-            $result = response()->view('mars.check_age',
+            $result = response()->view('how-old-am-i-on-mars::mars.check_age',
                 ['error' => $exception->getMessage()],
                 Response::HTTP_BAD_REQUEST);
 
@@ -77,7 +77,7 @@ class HowOldAmIOnMarsController extends Controller
 
         $this->createRequestHistory($user->id, $birthday);
 
-        $result = response()->view('mars.check_age',
+        $result = response()->view('how-old-am-i-on-mars::mars.check_age',
             [
                 'myAgeOnMars' => [
                     'birthday' => $birthday,

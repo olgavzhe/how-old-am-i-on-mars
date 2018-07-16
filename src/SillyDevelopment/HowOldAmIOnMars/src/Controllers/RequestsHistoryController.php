@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace SillyDevelopment\HowOldAmIOnMars\Controllers;
 
 use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Response;
-use App\RequestsHistory;
+use SillyDevelopment\HowOldAmIOnMars\RequestsHistory;
 
 /**
  * Class RequestsHistoryController
- * @package App\Http\Controllers
+ * @package SillyDevelopment\HowOldAmIOnMars\Controllers
  */
-class RequestsHistoryController extends Controller
+class RequestsHistoryController extends \App\Http\Controllers\Controller
 {
     /**
      * Get a list of requests history
@@ -26,7 +26,7 @@ class RequestsHistoryController extends Controller
             ->orderBy('created_at', 'asc')
             ->get();
 
-        $result = response()->view('requests-history.history_table',
+        $result = response()->view('how-old-am-i-on-mars::requests-history.history_table',
             ['requestsHistory' => $requestsHistory],
             Response::HTTP_OK
         );
